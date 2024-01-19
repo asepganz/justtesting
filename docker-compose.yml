@@ -1,0 +1,19 @@
+version: '3.3'
+
+services:
+  db:
+    image: postgres
+    environment:
+      - POSTGRES_DB=zergio
+      - POSTGRES_USER=root
+      - POSTGRES_PASSWORD=zergio
+    ports:
+      - 5432:5432
+    restart: always
+  zergioubot:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    depends_on:
+      - db
+    restart: always

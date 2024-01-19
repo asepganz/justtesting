@@ -1,0 +1,51 @@
+{
+  "name": "ZerPyro-Userbot",
+  "description": "[ZerPyro-Userbot] adalah userbot Telegram modular yang berjalan di Python3 dengan Library Pyrogram.  Powered by ZerPyro-Userbot.",
+  "stack": "heroku-22",
+  "logo": "https://telegra.ph/file/061bff619ab15a6a2b132.jpg",
+  "env": {
+    "API_ID": {
+      "description": "Dapatkan API ID di web my.telegram.org Masukan yg APP ID Telegram",
+      "required": true
+    },
+    "API_HASH": {
+      "description": "Dapatkan API Hash di web my.telegram.org",
+      "required": true
+    },
+    "BOT_TOKEN": {
+      "description": "Buatlah Sebuah Bot Di BotFather Lalu Salin Token Bot Nya",
+      "required": true
+    },
+    "STRING_SESSION1": {
+      "description": "Dapatkan String Session Pyrogram di Grup » https://t.me/cari_teman_virtual_ind » Lalu ketik #string",
+      "required": true
+    },
+    "HEROKU_API_KEY": {
+      "description": "Ambil Heroku API KEY mu disini » https://dashboard.heroku.com/account",
+      "required": false
+    },
+    "HEROKU_APP_NAME": {
+      "description": "Masukan Nama App heroku, Nama App yang paling pertama di isi (liat paling atas)",
+      "required": false
+    }
+  },
+  "addons": [
+    {
+      "plan": "heroku-postgresql"
+    }
+  ],
+  "buildpacks": [
+    {
+      "url": "heroku/python"
+    },
+    {
+      "url": "https://github.com/jonathanong/heroku-buildpack-ffmpeg-latest.git"
+    }
+  ],
+  "formation": {
+    "worker": {
+      "quantity": 1,
+      "size": "eco"
+    }
+  }
+}
