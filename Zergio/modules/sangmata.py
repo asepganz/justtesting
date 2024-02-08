@@ -32,10 +32,10 @@ async def sg(client: Client, message: Message):
             return await lol.edit(f"`Please specify a valid user!`")
     bot = "SangMata_BOT"
     try:
-        await client.send_message(bot, "{user.id}")
+        await client.send_message(bot, f"{user.id}")
     except YouBlockedUser:
         await client.unblock_user(bot)
-        await client.send_message(bot, "{user.id}")
+        await client.send_message(bot, f"{user.id}")
     await asyncio.sleep(1)
 
     async for stalk in client.search_messages(bot, query="Name", limit=1):
@@ -58,7 +58,7 @@ add_command_help(
     "sangmata",
     [
         [
-            "{cmd}sg <reply/userid/username>",
+            f"{cmd}sg <reply/userid/username>",
             "Untuk Mendapatkan Riwayat Nama Pengguna selama di telegram.",
         ],
     ],
